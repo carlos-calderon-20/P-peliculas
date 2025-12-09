@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JustWatch Style Clone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="main-header">
+    <div class="logo">
+      <span class="logo-text">Film<span class="highlight">mio</span></span>
+    </div>
+    <nav class="main-nav">
+      <a href="index.html" class="active">Inicio</a>
+      <a href="nuevo.html">Nuevo</a>
+      <a href="popular.html">Popular</a>
+    </nav>
+    <div class="search-container">
+      <input type="text" id="titulo" placeholder="Buscar películas o series...">
+      <button onclick="buscarPelicula()" id="search-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1>Descubre tu próxima favorita</h1>
+      <p>Transmite todas tus películas y series en un solo lugar.</p>
+    </div>
+  </div>
+
+  <main>
+    <div class="section-title">
+      <h2>Resultados de búsqueda</h2>
+    </div>
+    <div id="grid-peliculas" class="grid-peliculas">
+      <!-- Cards will be injected here -->
+      <div class="placeholder-msg">Escribe un título arriba para comenzar a buscar.</div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
