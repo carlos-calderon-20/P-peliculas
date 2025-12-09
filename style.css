@@ -1,0 +1,414 @@
+:root {
+    --bg-color: #0B0F15;
+    --header-bg: #10161d;
+    --text-color: #FFFFFF;
+    --text-secondary: #9CA4AB;
+    --accent-color: #FBC500;
+    /* JustWatch Gold/Yellow */
+    --card-bg: #1A222E;
+    --hover-border: #FBC500;
+    --font-family: 'Lato', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+/* Header */
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background-color: var(--header-bg);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo-text {
+    font-weight: 900;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+    color: #fff;
+}
+
+.logo-text .highlight {
+    color: var(--accent-color);
+}
+
+.main-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--text-color);
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    background: #242c38;
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+
+.search-container input {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 8px;
+    width: 200px;
+    font-family: var(--font-family);
+}
+
+.search-container input:focus {
+    outline: none;
+}
+
+.search-container button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-container button:hover {
+    color: var(--text-color);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(to bottom, rgba(11, 15, 21, 0.3), var(--bg-color)), url('https://w.wallhaven.cc/full/7p/wallhaven-7p39gy.jpg');
+    /* Generic movie background placeholder */
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+}
+
+/* Main Content */
+main {
+    padding: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-title h2 {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    border-left: 4px solid var(--accent-color);
+    padding-left: 15px;
+}
+
+.grid-peliculas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 24px;
+}
+
+.placeholder-msg {
+    color: var(--text-secondary);
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 1.1rem;
+}
+
+/* Cards */
+.card {
+    background: transparent;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+}
+
+.card .info {
+    padding: 10px 0;
+}
+
+.card .info h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--text-color);
+    margin-bottom: 4px;
+}
+
+.card .info p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .main-nav {
+        display: none;
+        /* Hide nav on mobile for simplicity */
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .grid-peliculas {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+}
+
+/* Timeline / Nuevo Styles */
+.timeline-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.timeline-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.timeline-date {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 5px;
+}
+
+.scroll-row {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    /* Hide scrollbar visually but keep functionality or custom style */
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) var(--bg-color);
+}
+
+.scroll-row::-webkit-scrollbar {
+    height: 8px;
+}
+
+.scroll-row::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+.scroll-row::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 4px;
+}
+
+/* Ensure cards in scroll row have fixed width */
+.scroll-row .card {
+    min-width: 150px;
+    width: 150px;
+}
+
+/* Rank Badge for Popular Page */
+.rank-badge {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: var(--accent-color);
+    color: #000;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1.1rem;
+    border-radius: 50%;
+    z-index: 5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Detalle Page */
+.detalle-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #fff;
+}
+
+.detalle-header {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.detalle-poster {
+    flex: 0 0 300px;
+}
+
+.detalle-poster img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.detalle-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.detalle-info h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+
+.detalle-info h1 .year {
+    font-weight: 300;
+    color: var(--text-secondary);
+}
+
+.meta-data {
+    display: flex;
+    gap: 20px;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    align-items: center;
+}
+
+.meta-data .rating {
+    background: var(--accent-color);
+    color: #000;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.streaming-options h3,
+.sinopsis h3,
+.cast h3 {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.provider-list {
+    display: flex;
+    gap: 10px;
+}
+
+.provider-badge {
+    padding: 8px 12px;
+    background: #242c38;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.provider-badge:hover {
+    border-color: var(--accent-color);
+}
+
+.sinopsis p,
+.cast p {
+    line-height: 1.6;
+    color: #ddd;
+}
+
+@media (max-width: 768px) {
+    .detalle-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .detalle-poster {
+        flex: 0 0 auto;
+        width: 200px;
+    }
+
+    .meta-data {
+        justify-content: center;
+    }
+}
